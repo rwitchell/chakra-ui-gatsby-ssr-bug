@@ -1,4 +1,5 @@
 import * as React from "react"
+import { Box } from '@chakra-ui/react'
 
 const pageStyles = {
   color: "#232129",
@@ -131,10 +132,12 @@ const IndexPage = () => {
         <br />
         <span style={headingAccentStyles}>— you just made a Gatsby site! 🎉🎉🎉</span>
       </h1>
+      <Box bgColor={'orange.300'}>
       <p style={paragraphStyles}>
         Edit <code style={codeStyles}>src/pages/index.js</code> to see this page
         update in real-time. 😎
       </p>
+      </Box>
       <ul style={listStyles}>
         <li style={docLinkStyle}>
           <a
@@ -172,5 +175,17 @@ const IndexPage = () => {
 }
 
 export default IndexPage
+
+export async function getServerData() {
+  return {
+    status: 200,
+    headers: {},
+    props: {
+      a: 'hello',
+      b: 'hi',
+      key: 'aaa'
+    },
+  }
+}
 
 export const Head = () => <title>Home Page</title>
